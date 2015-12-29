@@ -11,13 +11,13 @@ namespace Objects
         //Beings represent things one can interact with inside the game
         //Beings share certain characteristics, here are a few basic ones
 
-        int _Fatigue;
+        int _Turns;             //Turns taken today
         int _Level;
         int _ExperiencePoints;
         int _Strength;
         int _Dexterity;
         int _HealthPoints;
-        int _ManaPoints;
+        int _ManaPoints;        //Magic juice for those that pursue magic
        
 
         //Beings can also DO things, again, here are a few basic ones
@@ -38,7 +38,7 @@ namespace Objects
         public virtual bool Rest()
         {
             bool retValue = true;
-            //do some logic
+            //A simple heal that costs turn.
             return retValue;
         }
 
