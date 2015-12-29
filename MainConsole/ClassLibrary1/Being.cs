@@ -11,9 +11,14 @@ namespace Objects
         //Beings represent things one can interact with inside the game
         //Beings share certain characteristics, here are a few basic ones
 
+        int _Fatigue;
+        int _Level;
+        int _ExperiencePoints;
         int _Strength;
         int _Dexterity;
         int _HealthPoints;
+        int _ManaPoints;
+       
 
         //Beings can also DO things, again, here are a few basic ones
 
@@ -27,6 +32,13 @@ namespace Objects
         {
             bool retValue= false;
             //do some logic 
+            return retValue;
+        }
+
+        public virtual bool Rest()
+        {
+            bool retValue = true;
+            //do some logic
             return retValue;
         }
 
