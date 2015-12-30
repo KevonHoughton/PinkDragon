@@ -4,21 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Objects
+namespace PD.Objects
 {
     public abstract class Being
     {
         //Beings represent things one can interact with inside the game
         //Beings share certain characteristics, here are a few basic ones
 
-        int _Turns;             //Turns taken today
-        int _Level;
-        int _ExperiencePoints;
-        int _Strength;
-        int _Dexterity;
-        int _HealthPoints;
-        int _ManaPoints;        //Magic juice for those that pursue magic
-       
+        string Name;
+        public int Turns;
+        public int Level;
+        public int ExperiencePoints;
+        public int Strength;
+        public int Dexterity;
+        public int MaxHealthPoints;
+        public int CurrentHealthPoints;
+        public int MaxManaPoints;
+        public int CurrentManaPoints;        //Magic juice for those that pursue magic
+        public int Initiave { get { return Dexterity + Dice.d6(); } private set { } }
+
+
 
         //Beings can also DO things, again, here are a few basic ones
 
@@ -28,9 +33,25 @@ namespace Objects
 
         //some things are done the same regardless, they're just methods with default behavior.  This behavior will be used for all sub-classes, unless overridden.  \
         //We're expecting some of this to be overridden, so we mark them as virtual. 
-        public virtual bool Attack()
+        public virtual bool Attack(Being targetBeing)
         {
-            bool retValue= false;
+            int target = 11;
+            int modtarget = target + ((Dexterity - targetBeing.Dexterity) / 3);
+
+            // Roll 11 or less on 3d6 + ( targetBeing.Dexterity - Dexterity ) / 3
+
+            int actualroll = Dice.d6() + Dice.d6() + Dice.d6();
+            Console.WriteLine("To hit, ", Name, " wanted to roll 11 or less {", modtarget, " modifier}");
+            Console.WriteLine(Name, " rolled ", actualroll);
+            if (actualroll <= modtarget)
+            {
+                Console.WriteLine(Name, " hit!");
+            }
+            else
+            {
+                Console.WriteLine(Name, " missed!");
+            }
+            bool retValue = false;
             //do some logic 
             return retValue;
         }
@@ -43,15 +64,22 @@ namespace Objects
         }
 
         //Some things we want to be the same regardless, so we don't want them to be overridden and we do not make them Virtual
-        public int TakeDamage()
+        public int TakeDamage(int damageDone)
         {
-            int retValue = _HealthPoints;
+            //TODO: Think about damage mitigating features?  Armor??
+            CurrentHealthPoints -= damageDone;
+            //do some logic
+            return CurrentHealthPoints;
+        }
+
+        public int DoDamage()
+        {
+            int retValue = 0;
             //do some logic
             return retValue;
         }
 
-        //some things can only happen at the main level
-        private void Die()
+        public void Die()
         {
             // do some logic
         }

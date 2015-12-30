@@ -7,8 +7,8 @@
     <ProjectGuid>{37B54337-6460-45F1-B181-331AB1AF7731}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClassLibrary1</RootNamespace>
-    <AssemblyName>ClassLibrary1</AssemblyName>
+    <RootNamespace>PD.Objects</RootNamespace>
+    <AssemblyName>PD.Objects</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Arena.cs" />
     <Compile Include="Being.cs" />
+    <Compile Include="Dice.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

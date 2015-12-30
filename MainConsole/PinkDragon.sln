@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainConsole", "MainConsole\MainConsole.csproj", "{F6FAAEDD-C0FD-4706-BB64-252B5370938B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Objects", "ClassLibrary1\Objects.csproj", "{37B54337-6460-45F1-B181-331AB1AF7731}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PD.Objects", "ClassLibrary1\PD.Objects.csproj", "{37B54337-6460-45F1-B181-331AB1AF7731}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

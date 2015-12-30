@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Objects
+namespace PD.Objects
 {
     class Player : Being  //we say that a Player derives from (is a) Being 
     {
@@ -14,12 +14,5 @@ namespace Objects
             throw new NotImplementedException();
         }
 
-        public override bool Attack()
-        {
-            bool retValue = true;
-            //all of our players automatically hit every time, so we're going to override the base value and return our own.
-            //obviously this will not work so well in an actual implementation.  Let's figure out some logic later.
-            return retValue;
-        }
     }
 }
