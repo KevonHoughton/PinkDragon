@@ -13,6 +13,14 @@ namespace PD.Objects
         {
             throw new NotImplementedException();
         }
+        public virtual bool Rest()
+        {
+            bool retValue = true;
+            //A simple heal that costs a turn and heals 25 - 50% of total health. 
+            float healPercent = Dice.dHeal();
+
+            return retValue;
+        }
 
     }
 }

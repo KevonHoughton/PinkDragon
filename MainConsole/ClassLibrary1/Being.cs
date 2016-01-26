@@ -37,6 +37,7 @@ namespace PD.Objects
         {
             int target = 11;
             int modtarget = target + ((Dexterity - targetBeing.Dexterity) / 3);
+            bool retValue = false;
 
             // Roll 11 or less on 3d6 + ( targetBeing.Dexterity - Dexterity ) / 3
 
@@ -46,22 +47,19 @@ namespace PD.Objects
             if (actualroll <= modtarget)
             {
                 Console.WriteLine(Name, " hit!");
+                retValue = true;
             }
             else
             {
                 Console.WriteLine(Name, " missed!");
+                retValue = false;
             }
-            bool retValue = false;
+       
             //do some logic 
             return retValue;
         }
 
-        public virtual bool Rest()
-        {
-            bool retValue = true;
-            //A simple heal that costs turn.
-            return retValue;
-        }
+        
 
         //Some things we want to be the same regardless, so we don't want them to be overridden and we do not make them Virtual
         public int TakeDamage(int damageDone)
@@ -75,7 +73,36 @@ namespace PD.Objects
         public int DoDamage()
         {
             int retValue = 0;
-            //do some logic
+            
+            switch(Strength)
+            {
+                case 18:
+                    retValue += 3;
+                    break;
+                case 17:
+                    retValue += 2;
+                    break;
+                case 16:
+                case 15:
+                    retValue += 1;
+                    break;
+                case 6:
+                case 5:
+                    retValue -= 1;
+                    break;
+                case 4:
+                    retValue -= 2;
+                    break;
+                case 3:
+                    retValue -= 3;
+                    break;
+                default:
+                    retValue = 0;
+                    break;
+                    // Melee damage is d4 for now 
+            }
+            retValue += Dice.d4();
+
             return retValue;
         }
 
